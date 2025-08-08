@@ -1,0 +1,87 @@
+:root {
+  --bg: #ffffff;
+  --fg: #24292e;
+  --link: #1e6bb8;
+  --header-bg: #159957;
+  --header-fg: #ffffff;
+  --border: #e1e4e8;
+  --code-bg: #f6f8fa;
+}
+
+html.theme-cayman {}
+
+html.theme-slate {
+  --bg: #f8f9fa;
+  --fg: #2b3035;
+  --link: #0d6efd;
+  --header-bg: #2b3035;
+  --header-fg: #ffffff;
+  --border: #ced4da;
+  --code-bg: #e9ecef;
+}
+
+html.theme-hacker {
+  --bg: #0b0e0c;
+  --fg: #c3f3c0;
+  --link: #2ecc71;
+  --header-bg: #0b0e0c;
+  --header-fg: #2ecc71;
+  --border: #1f2a1e;
+  --code-bg: #0f1511;
+}
+
+html.dark {
+  --bg: #0e1116;
+  --fg: #c9d1d9;
+  --link: #58a6ff;
+  --header-bg: #0e1116;
+  --header-fg: #e6edf3;
+  --border: #30363d;
+  --code-bg: #161b22;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not(.dark-locked) {
+    --bg: #0e1116;
+    --fg: #c9d1d9;
+    --link: #58a6ff;
+    --header-bg: #0e1116;
+    --header-fg: #e6edf3;
+    --border: #30363d;
+    --code-bg: #161b22;
+  }
+}
+
+body { background: var(--bg); color: var(--fg); }
+a { color: var(--link); }
+code, pre { background: var(--code-bg); }
+
+.page-header { background: var(--header-bg) !important; color: var(--header-fg) !important; }
+.page-header .project-name,
+.page-header .project-tagline,
+.page-header a { color: var(--header-fg) !important; }
+
+.site-footer { border-top: 1px solid var(--border) !important; }
+.main-content h1, .main-content h2, .main-content h3,
+.main-content h4, .main-content h5, .main-content h6 { color: var(--fg); }
+hr { border-color: var(--border); }
+blockquote { border-left-color: var(--border); }
+
+#site-navbar {
+  position: sticky; top: 0; z-index: 1000;
+  background: var(--bg); color: var(--fg);
+  border-bottom: 1px solid var(--border);
+}
+#site-navbar .container {
+  max-width: 980px; margin: 0 auto; padding: 0.5rem 1rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+#site-navbar a { color: var(--fg); text-decoration: none; }
+#site-navbar a:hover { opacity: 0.8; }
+#site-navbar .brand { font-weight: 600; margin-right: 0.75rem; }
+#site-navbar .spacer { flex: 1; }
+#site-navbar .btn, #site-navbar select {
+  border: 1px solid var(--border); background: transparent; color: var(--fg);
+  padding: 0.25rem 0.5rem; border-radius: 6px;
+}
+#site-navbar .btn:hover { background: var(--code-bg); }
