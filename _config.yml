@@ -1,1 +1,23 @@
 theme: jekyll-theme-minimal
+
+# --- Site settings ---
+title: MeetingUnion Blog
+description: Personal blog by MeetingUnion.
+lang: zh-CN
+timezone: Asia/Shanghai
+url: ""       # 填写你的站点地址，例如 https://<USERNAME>.github.io 或自定义域名
+baseurl: ""   # 如果站点是项目页，填写仓库名，用户/组织页保持为空
+
+# --- Build settings ---
+markdown: kramdown
+permalink: /:categories/:year/:month/:day/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+exclude:
+  - README.md
+  - LICENSE
+  - .github/
