@@ -7,51 +7,79 @@
   Add your open source license, GitHub uses MIT license.
 -->
 
-# GitHub Pages
+# MeetingUnion Blog
 
-_Create a site or blog from your GitHub repositories with GitHub Pages._
+一个基于 Jekyll + GitHub Pages 的个人博客，当前使用远程主题 `pages-themes/cayman`，并在前端提供多风格预设和暗色模式切换。
 
-</header>
+## 在线地址
+- 站点：<你的站点 URL>（请在 `_config.yml` 中设置 `url`/`baseurl` 后替换）
+- RSS：`/feed.xml`
 
-<!--
-  <<< Author notes: Finish >>>
-  Review what we learned, ask for feedback, provide next steps.
--->
+## 功能
+- 远程主题：`pages-themes/cayman@v0.2.0`
+- 顶部导航：Home / About / Posts / RSS
+- 风格预设：Cayman / Slate / Hacker（可扩展）
+- 暗色模式：手动切换或跟随系统（可手动覆盖）
+- SEO 与分发：`jekyll-seo-tag`、`jekyll-sitemap`、`jekyll-feed`
 
-## Finish
+## 预览与切换
+- 顶部导航右侧可直接切换 Style 与 Dark 按钮，偏好会保存在浏览器。
+- URL 参数直达预览：
+  - `?theme=slate&dark=1`（Slate + 暗色）
+  - `?theme=hacker`（Hacker 预设）
+  - `?dark=0`（关闭暗色覆盖）
 
-_Congratulations friend, you've completed this course!_
+如需“真正更换主题”，在 `_config.yml` 中修改：
+```
+remote_theme: pages-themes/slate@v0.2.0
+# or
+remote_theme: pages-themes/hacker@v0.2.0
+# or
+remote_theme: pages-themes/minimal@v0.2.0
+```
 
-<img src=https://octodex.github.com/images/constructocat2.jpg alt=celebrate width=300 align=right>
-
-Your blog is now live and has been deployed!
-
-Here's a recap of all the tasks you've accomplished in your repository:
-
-- You enabled GitHub Pages.
-- You selected a theme using the config file.
-- You learned about proper directory format and file naming conventions in Jekyll.
-- You created your first blog post with Jekyll!
-
-### What's next?
-
-- Keep working on your GitHub Pages site... we love seeing what you come up with!
-- We'd love to hear what you thought of this course [in our discussion board](https://github.com/orgs/skills/discussions/categories/github-pages).
-- [Take another GitHub Skills course](https://github.com/skills).
-- [Read the GitHub Getting Started docs](https://docs.github.com/en/get-started).
-- To find projects to contribute to, check out [GitHub Explore](https://github.com/explore).
-
-<footer>
-
-<!--
-  <<< Author notes: Footer >>>
-  Add a link to get support, GitHub status page, code of conduct, license link.
--->
-
+## 写作
+- 文章放在 `_posts/`，文件名：`YYYY-MM-DD-title.md`
+- 示例 front matter：
+```
+---
+layout: default
+title: "文章标题"
+date: 2025-03-10 00:00:00 +0800
+categories: blog
 ---
 
-Get help: [Post in our discussion board](https://github.com/orgs/skills/discussions/categories/github-pages) &bull; [Review the GitHub status page](https://www.githubstatus.com/)
+正文内容...
+```
 
-&copy; 2023 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
+首页 `index.md` 会自动列出 `site.posts`。
 
-</footer>
+## 自定义
+- 顶部导航与切换逻辑：`assets/js/site.js`
+- 风格变量与暗色覆盖：`assets/css/custom.css`
+- 站点信息与插件：`_config.yml`
+- 站点图标：在 `assets/` 放置 `favicon.ico`
+
+要新增风格预设：
+1) 在 `assets/css/custom.css` 新增 `html.theme-xxx { ...变量... }`
+2) 在 `assets/js/site.js` 的下拉中加入 `xxx`
+
+## 部署
+- 直接推送到 `main`，GitHub Pages 将自动构建发布。
+- 若是“项目页”部署，请设置 `_config.yml` 的 `baseurl` 为仓库名；“用户/组织页”保持空。
+- 请设置正确的 `url`，以便站点地图与 RSS 输出绝对链接。
+
+## 本地预览（可选）
+若需要本地预览，可在仓库添加 `Gemfile` 并安装：
+```
+gem "github-pages", group: :jekyll_plugins
+```
+然后执行：
+```
+bundle install
+bundle exec jekyll serve
+```
+访问 `http://localhost:4000` 预览（如配置了 `baseurl`，路径为 `/baseurl`）。
+
+## 许可证
+见 `LICENSE`。
