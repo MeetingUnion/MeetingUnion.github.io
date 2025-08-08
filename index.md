@@ -1,6 +1,5 @@
 ---
 title: Welcome to my blog
-layout: default
 ---
 
 ### Welcome to MeetingUnion Blog
